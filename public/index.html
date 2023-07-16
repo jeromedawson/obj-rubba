@@ -8,57 +8,54 @@
   <link rel="stylesheet" href="path/to/your/css/styles.css"> <!-- Link the CSS file -->
 </head>
 <body>
-  <header class="header">
+  <header>
     <h1 class="header__logo">Net2Phone Canada</h1>
-    <nav class="header__menu">
+    <nav>
       <!-- Navigation menu items -->
     </nav>
   </header>
 
-  <main class="main">
-    <section class="objection-section">
-      <h2 class="objection-section__title">Submit Your Objection</h2>
-      <form id="objection-form" class="objection-form">
-        <input type="text" id="objection-input" class="objection-form__input" placeholder="Enter your objection">
-        <select id="category-select" class="objection-form__select">
+  <main>
+    <section>
+      <h2>Submit Your Objection</h2>
+      <form>
+        <label for="objection-input">Enter your objection:</label>
+        <input type="text" id="objection-input" placeholder="Enter your objection">
+        <label for="category-select">Select objection category:</label>
+        <select id="category-select">
           <!-- Category options will be dynamically added here -->
         </select>
-        <ul id="objection-suggestions" class="objection-form__suggestions">
+        <ul id="objection-suggestions">
           <!-- Real-time objection suggestions will be dynamically added here -->
         </ul>
-        <button type="submit" class="objection-form__submit">Submit</button>
-        <div class="objection-form__feedback" id="objection-feedback"></div>
+        <button type="submit">Submit</button>
+        <div id="objection-feedback"></div>
       </form>
     </section>
 
-    <section class="processing-section" id="processing-section">
-      <div class="processing-section__loader"></div>
-      <p class="processing-section__text">Generating rebuttal based on your objection. Please wait.</p>
-    </section>
-
-    <section class="rebuttal-section" id="rebuttal-section">
-      <h2 class="rebuttal-section__title">Powerful Rebuttal: Overcome Objections with Confidence</h2>
-      <div class="rebuttal-section__content" id="rebuttal-content">
+    <section>
+      <h2>Powerful Rebuttal: Overcome Objections with Confidence</h2>
+      <div id="rebuttal-content">
         <!-- Rebuttal content will be dynamically added here -->
       </div>
-      <div class="rebuttal-section__feedback">
-        <p class="rebuttal-section__rating">Rate the rebuttal:</p>
-        <div class="rebuttal-section__stars">
+      <div>
+        <p>Rate the rebuttal:</p>
+        <div>
           <!-- Rating stars will be dynamically added here -->
         </div>
-        <textarea id="rebuttal-feedback" class="rebuttal-section__feedback-textarea" placeholder="Provide feedback on the rebuttal"></textarea>
-        <button id="rebuttal-submit" class="rebuttal-section__feedback-submit">Submit</button>
+        <textarea id="rebuttal-feedback" placeholder="Provide feedback on the rebuttal"></textarea>
+        <button id="rebuttal-submit">Submit</button>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="footer__content">
+  <footer>
+    <div>
       <p>&copy; 2023 Net2Phone Canada. All rights reserved.</p>
-      <nav class="footer__menu">
+      <nav>
         <!-- Footer navigation links -->
       </nav>
-      <p class="footer__tagline">Empowering Sales Excellence with Advanced Objection Handling Solutions</p>
+      <p>Empowering Sales Excellence with Advanced Objection Handling Solutions</p>
     </div>
   </footer>
 
