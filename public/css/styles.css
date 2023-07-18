@@ -202,15 +202,4 @@ footer nav li {
 }
 
 /* Code Minification and Bundling */
-/* Stylesheet is minified and bundled using a build tool */
-
-/* Browser Compatibility */
-/* Code tested on major browsers: Chrome, Firefox, Safari, Edge */
-
-/* Print Stylesheet */
-@media print {
-  /* Adjust styles for printing */
-  header, footer {
-    display: none;
-  }
-}
+/* Stylesheet is minified and
