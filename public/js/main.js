@@ -13,20 +13,54 @@ favoritesButton.addEventListener('click', goToFavorites);
 mostUsedButton.addEventListener('click', goToMostUsed);
 donateButton.addEventListener('click', goToDonate);
 
-function findRebuttal() {
+async function findRebuttal() {
   const objection = objectionInput.value;
-  // TODO: Send objection to server and get rebuttal
-  // TODO: Display rebuttal in chat box
+  
+  // Make a POST request to the rebuttal endpoint
+  const response = await fetch('/rebuttals', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ objection }),
+  });
+
+  const data = await response.json();
+  const rebuttal = data.rebuttal;
+
+  // Display the rebuttal in the chat box
+  const message = document.createElement('p');
+  message.textContent = rebuttal;
+  chatBox.appendChild(message);
 }
 
 function goToFavorites() {
-  // TODO: Navigate to Favorites page
+  // Navigate to Favorites page
+  window.location.href = '/favorites';
 }
 
 function goToMostUsed() {
-  // TODO: Navigate to Most Used page
+  // Navigate to Most Used page
+  window.location.href = '/usages';
 }
 
 function goToDonate() {
-  // TODO: Navigate to Donate page
+  // Navigate to Donate page
+  window.location.href = 'https://www.paypal.com/donate';
+}
+
+// Save script when user leaves the page
+window.addEventListener('beforeunload', saveScript);
+
+async function saveScript() {
+  const content = scriptTextarea.value;
+
+  // Make a POST request to the scripts endpoint
+  await fetch('/scripts', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ content }),
+  });
 }
