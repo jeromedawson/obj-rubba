@@ -103,3 +103,51 @@ async function saveScript() {
     body: JSON.stringify({ content }),
   });
 }
+// ... existing code ...
+
+function createDataTable(data) {
+  const table = document.createElement('table');
+
+  // Add table header
+  const headerRow = document.createElement('tr');
+  const objectionHeader = document.createElement('th');
+  objectionHeader.textContent = 'Objection';
+  headerRow.appendChild(objectionHeader);
+  const rebuttalHeader = document.createElement('th');
+  rebuttalHeader.textContent = 'Rebuttal';
+  headerRow.appendChild(rebuttalHeader);
+  table.appendChild(headerRow);
+
+  // Add table rows
+  data.forEach(item => {
+    const row = document.createElement('tr');
+
+    const objectionCell = document.createElement('td');
+    objectionCell.textContent = item.objection;
+    row.appendChild(objectionCell);
+
+    const rebuttalCell = document.createElement('td');
+    rebuttalCell.textContent = item.rebuttal;
+    row.appendChild(rebuttalCell);
+
+    table.appendChild(row);
+  });
+
+  return table;
+}
+
+function displayPagination(totalPages) {
+  paginationContainer.innerHTML = '';
+
+  for (let i = 1; i <= totalPages; i++) {
+    const button = document.createElement('button');
+    button.textContent = i;
+    button.classList.add('pagination-button');
+    button.addEventListener('click', () => {
+      currentPage = i;
+      goToFavorites(); // or goToMostUsed()
+    });
+    paginationContainer.appendChild(button);
+  }
+}
+
