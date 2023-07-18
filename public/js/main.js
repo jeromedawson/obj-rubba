@@ -6,6 +6,9 @@ const scriptTextarea = document.querySelector('#script-textarea');
 const favoritesButton = document.querySelector('#favorites');
 const mostUsedButton = document.querySelector('#most-used');
 const donateButton = document.querySelector('#donate');
+const loadingSpinner = document.querySelector('#loading-spinner');
+const errorMessage = document.querySelector('#error-message');
+
 
 // Add event listeners
 findRebuttalButton.addEventListener('click', findRebuttal);
