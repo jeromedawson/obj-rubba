@@ -9,7 +9,6 @@ const donateButton = document.querySelector('#donate');
 const loadingSpinner = document.querySelector('#loading-spinner');
 const errorMessage = document.querySelector('#error-message');
 
-
 // Add event listeners
 findRebuttalButton.addEventListener('click', findRebuttal);
 favoritesButton.addEventListener('click', goToFavorites);
@@ -54,7 +53,9 @@ async function saveScript() {
   }
 }
 
-  
+async function findRebuttal() {
+  const objection = objectionInput.value;
+
   // Make a POST request to the rebuttal endpoint
   const response = await fetch('/rebuttals', {
     method: 'POST',
@@ -103,7 +104,44 @@ async function saveScript() {
     body: JSON.stringify({ content }),
   });
 }
-// ... existing code ...
+
+/* Add handling for loading spinner, error message, form validation, pagination, and data table */
+const loadingSpinner = document.querySelector('#loading-spinner');
+const errorMessage = document.querySelector('#error-message');
+const dataContainer = document.querySelector('#data-container');
+const paginationContainer = document.querySelector('#pagination-container');
+
+let currentPage = 1;
+
+async function goToFavorites() {
+  try {
+    const response = await fetch(`/favorites?page=${currentPage}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error('Could not fetch favorites');
+    }
+
+    const data = await response.json();
+    const favorites = data.favorites;
+
+    // Clear the data container and display the favorites in a table
+    dataContainer.innerHTML = '';
+    const table = createDataTable(favorites);
+    dataContainer.appendChild(table);
+
+    // Display the pagination
+    const totalPages = data.totalPages;
+    displayPagination(totalPages);
+  } catch (error) {
+    errorMessage.textContent = 'An error occurred. Please try again.';
+    errorMessage.classList.remove('hidden');
+  }
+}
 
 function createDataTable(data) {
   const table = document.createElement('table');
@@ -150,4 +188,3 @@ function displayPagination(totalPages) {
     paginationContainer.appendChild(button);
   }
 }
-
