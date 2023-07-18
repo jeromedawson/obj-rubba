@@ -18,6 +18,42 @@ donateButton.addEventListener('click', goToDonate);
 
 async function findRebuttal() {
   const objection = objectionInput.value;
+
+  if (!objection.trim()) {
+    errorMessage.textContent = 'Please enter an objection.';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+
+  loadingSpinner.classList.remove('hidden');
+
+  try {
+    /* ... */
+  } catch (error) {
+    errorMessage.textContent = 'An error occurred. Please try again.';
+    errorMessage.classList.remove('hidden');
+  } finally {
+    loadingSpinner.classList.add('hidden');
+  }
+}
+
+async function saveScript() {
+  const content = scriptTextarea.value;
+
+  if (!content.trim()) {
+    errorMessage.textContent = 'Please enter a script.';
+    errorMessage.classList.remove('hidden');
+    return;
+  }
+
+  try {
+    /* ... */
+  } catch (error) {
+    errorMessage.textContent = 'An error occurred while saving your script. Please try again.';
+    errorMessage.classList.remove('hidden');
+  }
+}
+
   
   // Make a POST request to the rebuttal endpoint
   const response = await fetch('/rebuttals', {
