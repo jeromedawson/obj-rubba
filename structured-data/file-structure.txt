@@ -1,10 +1,10 @@
-- app.js
+- app.js  ✅
 - package.json
 - .env
 - public/
-  - index.html
+  - index.html ✅
   - css/
-    - styles.css
+    - styles.css ✅
     - responsive/
       - _header.css
       - _navigation.css
@@ -17,10 +17,10 @@
   - images/
     - logo.png
 - routes/
-  - objections.js
+  - objections.js ✅
   - rebuttals.js
 - models/
-  - objection.js
+  - objection.js ✅
   - rebuttal.js
 - controllers/
   - objectionController.js
